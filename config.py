@@ -1,11 +1,7 @@
-# ══════════════════════════════════════════════
-# ЗАПОЛНИ ЭТИ ПОЛЯ
-# ══════════════════════════════════════════════
+import os
 
-TELEGRAM_BOT_TOKEN = "СЮДА_ТОКЕН_БОТА"
-GROQ_API_KEY = "СЮДА_GROQ_API_KEY"
-
-# Прокси (если запускаешь локально без VPN)
-# Пример: "socks5://1.2.3.4:1080"
-# При запуске на Koyeb — оставь пустым
-PROXY = ""
+# Токены берутся из переменных окружения (Render)
+# При локальном запуске — заполни руками ниже
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "СЮДА_ТОКЕН_БОТА")
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "СЮДА_GROQ_API_KEY")
+PROXY = os.environ.get("PROXY", "")
