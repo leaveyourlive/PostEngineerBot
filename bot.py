@@ -664,8 +664,10 @@ async def main():
         print(f"🌐 Прокси: {PROXY}")
     else:
         bot = Bot(token=TELEGRAM_BOT_TOKEN)
+    # Сбрасываем все предыдущие сессии при старте
+    await bot.delete_webhook(drop_pending_updates=True)
     print("🤖 Бот запущен! Ctrl+C для остановки.")
-    await dp.start_polling(bot)
+    await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())
 
 
 if __name__ == "__main__":
